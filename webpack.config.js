@@ -8,11 +8,11 @@ const Target = WebpackCommon.GetTargetPath();
 const Settings = {
     "production": {
         Tag: "",
-        TaskGuid: "{{guid_production}}",
+        TaskGuid: "3a377eb1-bc1c-49ff-9eb0-61c57ce60f30",
     },
     "development": {
         Tag: "Dev",
-        TaskGuid: "{{guid_development}}",
+        TaskGuid: "56161162-c7ee-4082-99b1-2e0102c7f829",
     }
     // Can add more flavors here as needed. For example, a flavor for pre-production
 };
@@ -28,7 +28,7 @@ module.exports = env => {
     const config = {
 
         entry: {
-            "main": "./src/custom-task/main.ts",
+            "main": "./src/verify-all-jobs-running/main.ts",
         },
 
         plugins: [
@@ -36,20 +36,20 @@ module.exports = env => {
                 // These files are needed by azure-pipelines-task-lib library.
                 {
                     from: path.resolve("./node_modules/azure-pipelines-task-lib/lib.json"),
-                    to: path.join(Target, "custom-task")
+                    to: path.join(Target, "verify-all-jobs-running")
                 },
                 {
                     from: path.resolve("./node_modules/azure-pipelines-task-lib/Strings"),
-                    to: path.join(Target, "custom-task")
+                    to: path.join(Target, "verify-all-jobs-running")
                 },
 
                 {
-                    from: path.join(__dirname, "./src/custom-task/task.json"),
-                    to: path.join(Target, "custom-task")
+                    from: path.join(__dirname, "./src/verify-all-jobs-running/task.json"),
+                    to: path.join(Target, "verify-all-jobs-running")
                 },
                 {
                     from: path.join(__dirname, "./images/icon.png"),
-                    to: path.join(Target, "custom-task", "icon.png")
+                    to: path.join(Target, "verify-all-jobs-running", "icon.png")
                 },
                 {
                     from: path.join(__dirname, "./manifests/base.json"),
@@ -70,11 +70,11 @@ module.exports = env => {
             ]),
 
             WebpackCommon.PackageJsonLoadFixer(Target, [
-                "custom-task/main.js",
+                "verify-all-jobs-running/main.js",
             ]),
 
             WebpackCommon.VersionStringReplacer(Target, [
-                "custom-task/task.json",
+                "verify-all-jobs-running/task.json",
                 "base.json"
             ]),
 
@@ -82,8 +82,8 @@ module.exports = env => {
                 {
                     dir: Target,
                     files: [
-                        "custom-task/main.js",
-                        "custom-task/task.json",
+                        "verify-all-jobs-running/main.js",
+                        "verify-all-jobs-running/task.json",
                         "base.json"
                     ],
                     rules: [
@@ -107,5 +107,5 @@ module.exports = env => {
         ],
     };
 
-    return WebpackCommon.FillDefaultNodeSettings(config, env, "custom-task");
+    return WebpackCommon.FillDefaultNodeSettings(config, env, "verify-all-jobs-running");
 };

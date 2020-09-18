@@ -1,4 +1,4 @@
 {
-    "id": "custom-task-dev",
+    "id": "azure-devops-databricks-rest-api-dev",
     "baseUri": "https://localhost:3000"
   }

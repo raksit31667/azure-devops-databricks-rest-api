@@ -1,13 +1,13 @@
 {
     "manifestVersion": 1,
-    "id": "MyCustomExtension{{tag}}",
-    "name": "My Custom Extension {{tag}}",
+    "id": "azure-devops-databricks-rest-api",
+    "name": "Azure Databricks REST API",
     "icons": {
         "default": "icon.png"
     },
     "version": "{{version}}",
     "description": "This extension contains a custom build and release task.",
-    "publisher": "{{publisher}}",
+    "publisher": "Raksit Mantanacharu",
     "public": false,
     "categories": [
         "Azure Pipelines"
@@ -24,19 +24,19 @@
     ],
     "contributions": [
         {
-            "id": "custom-task",
+            "id": "ado-databricks-rest-api-verifyalljobsrunning",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "custom-task"
+                "name": "verify-all-jobs-running"
             }
         }
     ],
     "files": [
         {
-            "path": "custom-task",
+            "path": "verify-all-jobs-running",
             "addressable": true
         }
     ]
