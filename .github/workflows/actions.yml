@@ -1,0 +1,29 @@
+name: actions
+
+on:
+  push:    
+    branches:
+      - master
+      
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js 10.15.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.15.1
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build -- --env production
+      - name: Package
+        run: npm run package -- production.json --output-path production.vsix --publisher raksit31667 --token ${{ secrets.ADO_PAT }}
+      - name: Publish extension
+        run: npm run publish -- --vsix dist/production.vsix --token ${{ secrets.ADO_PAT }}
+      - name: Publish artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: extension
+          path: dist/production.vsix
