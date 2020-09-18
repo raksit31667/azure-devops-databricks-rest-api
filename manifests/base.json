@@ -6,7 +6,7 @@
         "default": "icon.png"
     },
     "version": "{{version}}",
-    "description": "This extension contains a custom build and release task.",
+    "description": "Interacting with Azure Databricks via REST API",
     "publisher": "Raksit Mantanacharu",
     "public": false,
     "categories": [
