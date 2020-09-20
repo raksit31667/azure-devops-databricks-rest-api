@@ -32,6 +32,7 @@
                     "typeLiterals": "ignore"
                 }
             }
-        ]
+        ],
+        "variable-name": false
     }
 }
