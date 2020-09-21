@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as tl from "azure-pipelines-task-lib/task";
 
-async function run() {
+export async function run() {
     try {
         const name: string | undefined = tl.getInput("name", true);
         const nodeTypeId: string | undefined = tl.getInput("nodeTypeId", true);
@@ -22,11 +22,11 @@ async function run() {
 
         const pools: InstancePool[] = listPoolResponse.data.instance_pools;
 
-        if (!pools || !pools.some(pool => pool.instance_pool_name === name)) {
+        if (!instancePoolsExist(pools, name)) {
             tl.setResult(tl.TaskResult.Failed, `Instance pool ${name} not exist`);
         }
 
-        const targetPool: InstancePool = pools.filter(pool => pool.instance_pool_name === name)[0];
+        const targetPool: InstancePool = getInstancePoolByName(pools, name);
         targetPool.node_type_id = nodeTypeId;
         targetPool.min_idle_instances = +minIdleInstances;
         targetPool.max_capacity = +maxCapacity;
@@ -42,6 +42,14 @@ async function run() {
     } catch (error) {
         tl.setResult(tl.TaskResult.Failed, error);
     }
+}
+
+export function instancePoolsExist(pools: InstancePool[], name: string) {
+    return pools?.some(pool => pool.instance_pool_name === name);
+}
+
+export function getInstancePoolByName(pools: InstancePool[], name: string) {
+    return pools.filter(pool => pool.instance_pool_name === name)[0];
 }
 
 run();
