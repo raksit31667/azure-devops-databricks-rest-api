@@ -1,9 +1,9 @@
 import axios from "axios";
 import * as tl from "azure-pipelines-task-lib/task";
 
-async function run() {
+export async function run() {
     try {
-        const jobs: string[] | undefined = tl.getInput("jobs", true)?.split(",").map(name => name.trim());
+        const jobNames: string[] | undefined = tl.getInput("jobs", true)?.split(",").map(name => name.trim());
         const region: string | undefined = tl.getInput("region", true);
         const accessToken: string | undefined = tl.getInput("accessToken", true);
 
@@ -13,7 +13,7 @@ async function run() {
                 Authorization: `Bearer ${accessToken}`
             }
         });
-        if (actualRunningJobs.data.runs.map((job: { run_name: string; }) => jobs?.includes(job.run_name))) {
+        if (isEveryJobRunning(actualRunningJobs.data.runs, jobNames)) {
             console.log("Good, all given jobs are running.");
         } else {
             tl.setResult(tl.TaskResult.Failed, "Validation failed. Some jobs are not running :(");
@@ -21,6 +21,15 @@ async function run() {
     } catch (error) {
         tl.setResult(tl.TaskResult.Failed, error);
     }
+}
+
+export function isEveryJobRunning(jobRuns: any, expectedJobNames: string[]) {
+    if (expectedJobNames.length === 0) {
+        return false;
+    }
+    return jobRuns.filter(job => {
+        return expectedJobNames.includes(job.run_name);
+    }).length === expectedJobNames.length;
 }
 
 run();
