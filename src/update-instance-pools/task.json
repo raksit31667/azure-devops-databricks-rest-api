@@ -32,7 +32,7 @@
         {
             "name": "minIdleInstances",
             "type": "string",
-            "label": "Instance type",
+            "label": "Min idle instances",
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "The minimum number of idle instances maintained by the pool."
