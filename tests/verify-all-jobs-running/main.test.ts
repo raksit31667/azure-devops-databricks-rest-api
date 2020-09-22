@@ -8,7 +8,7 @@ describe("Verify all jobs running", () => {
             },
             {
                 run_name: "another-job"
-            }
+            },
         ];
         const jobNames = ["some-job", "another-job"];
         expect(isEveryJobRunning(jobRuns, jobNames)).toEqual(true);
@@ -18,7 +18,7 @@ describe("Verify all jobs running", () => {
         const jobRuns = [
             {
                 run_name: "some-job"
-            }
+            },
         ];
         const jobNames = ["some-job", "another-job"];
         expect(isEveryJobRunning(jobRuns, jobNames)).toEqual(false);
@@ -37,7 +37,7 @@ describe("Verify all jobs running", () => {
             },
             {
                 run_name: "another-job"
-            }
+            },
         ];
         const jobNames = [];
         expect(isEveryJobRunning(jobRuns, jobNames)).toEqual(false);

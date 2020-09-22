@@ -1,4 +1,4 @@
-import { instancePoolsExist, getInstancePoolByName } from "../../src/update-instance-pools/main";
+import { getInstancePoolByName, instancePoolsExist } from "../../src/update-instance-pools/main";
 
 describe("Update instance pools", () => {
     test("should return true when instancePoolsExist given pool with name 'some-pool' exists", () => {
@@ -18,7 +18,7 @@ describe("Update instance pools", () => {
                 min_idle_instances: 2,
                 max_capacity: 10,
                 idle_instance_autotermination_minutes: 60
-            }
+            },
         ];
         expect(instancePoolsExist(pools, "some-pool")).toEqual(true);
     });
@@ -40,7 +40,7 @@ describe("Update instance pools", () => {
                 min_idle_instances: 2,
                 max_capacity: 10,
                 idle_instance_autotermination_minutes: 60
-            }
+            },
         ];
         expect(instancePoolsExist(pools, "some-pool")).toEqual(false);
     });
@@ -67,7 +67,7 @@ describe("Update instance pools", () => {
                 min_idle_instances: 2,
                 max_capacity: 10,
                 idle_instance_autotermination_minutes: 60
-            }
+            },
         ];
         expect(getInstancePoolByName(pools, "some-pool")).toEqual({
             instance_pool_id: "2",
