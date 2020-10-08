@@ -8,6 +8,7 @@ export async function run() {
         const accessToken: string | undefined = tl.getInput("accessToken", true);
 
         jobNames.forEach(async name => {
+            console.log(`Cancelling all runs for job ${name}`);
             const job = await getJobByName(name, region, accessToken);
             cancelJobRuns(job.job_id, region, accessToken);
         });

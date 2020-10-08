@@ -16,8 +16,6 @@ export async function getJobByName(name: string, region: string, accessToken: st
 }
 
 export async function cancelJobRuns(id: number, region: string, accessToken: string) {
-    console.log(`Cancelling all runs for job ${id}`);
-
     const listActiveRunsResponse = await axios.get(
         `https://${region}.azuredatabricks.net/api/2.0/jobs/runs/list`, {
         headers: {
@@ -40,6 +38,5 @@ export async function cancelJobRuns(id: number, region: string, accessToken: str
                 Authorization: `Bearer ${accessToken}`
             }
         });
-        console.log(`Cancelled all runs for job ${id}`);
     });
 }
