@@ -8,7 +8,7 @@
     "version": "{{version}}",
     "description": "Interacting with Azure Databricks via REST API",
     "publisher": "Raksit Mantanacharu",
-    "public": false,
+    "public": true,
     "categories": [
         "Azure Pipelines"
     ],
