@@ -42,6 +42,16 @@
             "properties": {
                 "name": "update-instance-pools"
             }
+        },
+        {
+            "id": "ado-databricks-rest-api-cancelautomatedjobruns",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "cancel-automated-job-runs"
+            }
         }
     ],
     "files": [
@@ -51,6 +61,10 @@
         },
         {
             "path": "update-instance-pools",
+            "addressable": true
+        },
+        {
+            "path": "cancel-automated-job-runs",
             "addressable": true
         }
     ]
