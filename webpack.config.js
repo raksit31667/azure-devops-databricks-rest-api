@@ -25,7 +25,7 @@ module.exports = env => {
         process.exit(1);
     }
 
-    const tasks = ['verify-all-jobs-running', 'update-instance-pools'];
+    const tasks = ['verify-all-jobs-running', 'update-instance-pools', 'cancel-automated-job-runs'];
     return tasks.map(task => {
         const config = {
 
