@@ -27,8 +27,11 @@ export async function cancelJobRuns(id: number, region: string, accessToken: str
         }
     });
 
-    const activeRuns = listActiveRunsResponse.data.runs;
-    activeRuns.forEach(async run => {
+    if (!listActiveRunsResponse.data.runs) {
+        console.warn(`Skipped cancelling since there is no run on job ${id}`);
+        return;
+    }
+    listActiveRunsResponse.data.runs.forEach(async run => {
         const requestBody = {
             run_id: run.run_id
         };
