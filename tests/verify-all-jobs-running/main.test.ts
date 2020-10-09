@@ -42,4 +42,10 @@ describe("Verify all jobs running", () => {
         const jobNames = [];
         expect(isEveryJobRunning(jobRuns, jobNames)).toEqual(false);
     });
+
+    test("should return false when isEveryJobRunning given undefined runs", () => {
+        const jobRuns = undefined;
+        const jobNames = ["some-job", "another-job"];
+        expect(isEveryJobRunning(jobRuns, jobNames)).toEqual(false);
+    });
 });

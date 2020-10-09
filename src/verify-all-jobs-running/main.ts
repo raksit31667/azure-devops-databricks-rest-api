@@ -24,7 +24,7 @@ export async function run() {
 }
 
 export function isEveryJobRunning(jobRuns: any, expectedJobNames: string[]) {
-    if (expectedJobNames.length === 0) {
+    if (!jobRuns || expectedJobNames.length === 0) {
         return false;
     }
     return jobRuns.filter(job => {
