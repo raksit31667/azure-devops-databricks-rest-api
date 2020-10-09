@@ -10,7 +10,7 @@ export async function run() {
         jobNames.forEach(async name => {
             console.log(`Cancelling all runs for job ${name}`);
             const job = await getJobByName(name, region, accessToken);
-            cancelJobRuns(job.job_id, region, accessToken);
+            await cancelJobRuns(job.job_id, region, accessToken);
         });
 
     } catch (error) {
