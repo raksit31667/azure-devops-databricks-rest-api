@@ -1,5 +1,7 @@
 # Azure DevOps Databricks REST API
 
+![actions](https://github.com/raksit31667/azure-devops-databricks-rest-api/workflows/actions/badge.svg)
+
 ![Azure Databricks](./images/icon.png)
 
 ## Introduction
