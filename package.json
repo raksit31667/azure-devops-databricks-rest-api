@@ -37,7 +37,7 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "azure-devops-node-api": "^10.1.1",
     "azure-pipelines-task-lib": "^2.11.3"
   },
