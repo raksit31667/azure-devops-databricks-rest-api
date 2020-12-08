@@ -12,7 +12,7 @@
     "publish": "tfx extension publish"
   },
   "devDependencies": {
-    "@types/jest": "^24.9.1",
+    "@types/jest": "^26.0.17",
     "@types/node": "^10.17.6",
     "@types/q": "^1.5.1",
     "clean-webpack-plugin": "^1.0.0",
