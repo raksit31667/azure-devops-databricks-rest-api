@@ -66,7 +66,7 @@ module.exports = env => {
                         to: Target
                     },
                     {
-                        from: path.join(__dirname, "./src/README.md"),
+                        from: path.join(__dirname, "./README.md"),
                         to: Target
                     }
                 ]),

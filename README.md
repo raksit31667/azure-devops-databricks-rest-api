@@ -19,7 +19,7 @@ You may find this extension **useless** when:
 ## Getting started
 
 - Install an extension via <https://marketplace.visualstudio.com/items?itemName=raksit31667.azure-devops-databricks-rest-api>.
-- Add Azure DevOps task similar as a code snippet below:
+- Add Azure DevOps task similar to a code snippet below:
 
 ```yaml
 - task: VerifyAllDatabricksJobRunning@1
