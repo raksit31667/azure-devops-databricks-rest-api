@@ -8,6 +8,10 @@
     "version": "{{version}}",
     "description": "Interacting with Azure Databricks via REST API",
     "publisher": "Raksit Mantanacharu",
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/raksit31667/azure-devops-databricks-rest-api"
+    },
     "public": true,
     "categories": [
         "Azure Pipelines"
